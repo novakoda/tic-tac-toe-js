@@ -1,0 +1,22 @@
+$bg-color: #96f;
+
+body {
+  background-color: $bg-color;
+}
+
+#board {
+  max-width: 600px;
+  max-height: 600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+}
+
+.slot {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  font-size: 80px;
+  font-weight: bold;
+  padding: 40px 0;
+}
