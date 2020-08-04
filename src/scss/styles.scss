@@ -13,10 +13,16 @@ body {
 }
 
 .slot {
-  width: 200px;
-  height: 200px;
+  min-width: 100%;
+  min-height: 100%;
   margin: auto;
   font-size: 80px;
   font-weight: bold;
   padding: 40px 0;
+  cursor: pointer;
+}
+
+.player-sign {
+  font-size: 100px;
+  font-weight: bold;
 }

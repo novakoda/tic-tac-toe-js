@@ -12,21 +12,38 @@
     </head>
 
     <body>
-      <h1>Tic-Tac-Toe</h1>
-      <div class="">
-        <h3 id="notifications" class=""></h3>
-        <div id="board">
-          <div id="tl" class="slot border text-center">X</div>
-          <div id="tm" class="slot border text-center">O</div>
-          <div id="tr" class="slot border text-center">X</div>
-          <div id="ml" class="slot border text-center"></div>
-          <div id="mm" class="slot border text-center"></div>
-          <div id="mr" class="slot border text-center">O</div>
-          <div id="bl" class="slot border text-center">X</div>
-          <div id="bm" class="slot border text-center">O</div>
-          <div id="br" class="slot border text-center">O</div>
+      <div class="container">
+        <h1 class="text-center">Tic-Tac-Toe</h1>
+        <div class="row">
+          <div class="col">
+            <h2 id="x-name" class="player-name text-center">Player 1</h2>
+            <div class="player-sign text-center">X</div>
+          </div>
+
+          <div class="col-6">
+            <h3 id="notifications" class=""></h3>
+            <div id="board">
+              <div id="tl" class="slot border text-center">X</div>
+              <div id="tm" class="slot border text-center">O</div>
+              <div id="tr" class="slot border text-center">X</div>
+              <div id="ml" class="slot border text-center">X</div>
+              <div id="mm" class="slot border text-center"></div>
+              <div id="mr" class="slot border text-center">O</div>
+              <div id="bl" class="slot border text-center">X</div>
+              <div id="bm" class="slot border text-center">O</div>
+              <div id="br" class="slot border text-center">O</div>
+            </div>
+          </div>
+
+          <div class="col">
+            <h2 id="o-name" class="player-name text-center">Player 2</h2>
+            <div class="player-sign text-center">O</div>
+          </div>
         </div>
+
+
       </div>
+
 
         <script src="/js/game.js"></script>
         <script src="/js/jquery.min.js"></script>
