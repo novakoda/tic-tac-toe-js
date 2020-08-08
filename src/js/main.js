@@ -34,5 +34,6 @@ closeBtn.addEventListener("click", function() {
 });
 
 resetBtn.addEventListener("click", function() {
+  document.getElementById('light-o').style.display = "none";
   Game.start([player1,player2]);
 });

@@ -49,6 +49,7 @@ body {
   color: #fff; }
 
 .marker {
+  display: none;
   width: 25px;
   height: 25px;
   margin-top: 7px;

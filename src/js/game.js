@@ -10,6 +10,8 @@ let winner;
 let fullSlots = 0;
 let slots = Array.from(document.getElementsByClassName("slot"));
 let notifications = document.getElementById("notifications");
+let xLight = document.getElementById('light-x');
+let oLight = document.getElementById('light-o');
 
 slots.forEach((slot) => {
   slot.addEventListener("click",  function() {turn(slot);});
@@ -24,6 +26,7 @@ const switchPlayers = () => {
 const start = (users) => {
   players = users;
   currentPlayer = users[0];
+  xLight.style.display = "block";
   board = new Array(9);
   fullSlots = 0;
 
@@ -35,11 +38,20 @@ const start = (users) => {
 
 const end = () => {
   getWinner() !== null ? notify(`${currentPlayer.name} won!`) : notify("It was a tie!", "danger");
+  xLight.style.display = "none";
+  oLight.style.display = "none";
   start(players);
 };
 
 const turn = (slot) => {
   markSlot(slot);
+  if (currentPlayer.mark === "X") {
+    xLight.style.display = "none";
+    oLight.style.display = "block";
+  } else {
+    oLight.style.display = "none";
+    xLight.style.display = "block";
+  };
   if (getWinner() !== null || fullSlots === 9) {
     end();
   } else {
