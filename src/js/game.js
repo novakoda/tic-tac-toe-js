@@ -1,4 +1,4 @@
-const board = [
+let board = [
   "", "", "",
   "", "", "",
   "", "", ""
@@ -9,6 +9,11 @@ let currentPlayer;
 let winner;
 let fullSlots = 0;
 let slots = Array.from(document.getElementsByClassName("slot"));
+let notifications = document.getElementById("notifications");
+
+slots.forEach((slot) => {
+  slot.addEventListener("click",  function() {turn(slot);});
+});
 
 const getCurrentPlayer = () => currentPlayer;
 
@@ -20,23 +25,29 @@ const switchPlayers = () => {
 const start = (users) => {
   players = users;
   currentPlayer = users[0];
+  console.log({board, fullSlots});
 
   slots.forEach((slot, i) => {
+    slot.innerHTML = "";
     slot.disabled = false;
-    slot.addEventListener("click",  function() {turn(slot);});
   });
+};
+
+const end = () => {
+  getWinner() !== null ? notify(`${currentPlayer.name} won!`) : notify("It was a tie!", "danger");
+  board = new Array(9);
+  fullSlots = 0;
+  start(players);
 };
 
 const turn = (slot) => {
   markSlot(slot);
-  if (getWinner() !== null) {
-    alert(`${currentPlayer.name} won!`);
-  } else if (fullSlots === 9) {
-    alert("It was a tie!");
+  if (getWinner() !== null || fullSlots === 9) {
+    end();
   } else {
     switchPlayers();
   };
-}
+};
 
 const markSlot = (slot) => {
   let i = slots.indexOf(slot);
@@ -58,6 +69,16 @@ const getWinner = () => {
   });
   return winner;
 };
+
+const notify = (message, type = null) => {
+  notifications.innerHTML = message;
+  if (type === null) {
+    notifications.className = "alert alert-primary"
+  } else {
+    notifications.className = `alert alert-${type}`
+  }
+  console.log({message, type});
+}
 
 export {
   getCurrentPlayer, switchPlayers, start, getWinner

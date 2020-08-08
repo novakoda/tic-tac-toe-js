@@ -1,5 +1,5 @@
 var slots = Array.from(document.getElementsByClassName("slot"));
-var notificationDiv = document.getElementById("notifications");
+var notifications = document.getElementById("notifications");
 
 const Player = (name, mark) => {
   return {name, mark}
