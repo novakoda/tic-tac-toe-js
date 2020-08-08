@@ -24,7 +24,8 @@ const switchPlayers = () => {
 const start = (users) => {
   players = users;
   currentPlayer = users[0];
-  console.log({board, fullSlots});
+  board = new Array(9);
+  fullSlots = 0;
 
   slots.forEach((slot, i) => {
     slot.innerHTML = "";
@@ -34,8 +35,6 @@ const start = (users) => {
 
 const end = () => {
   getWinner() !== null ? notify(`${currentPlayer.name} won!`) : notify("It was a tie!", "danger");
-  board = new Array(9);
-  fullSlots = 0;
   start(players);
 };
 
@@ -49,6 +48,7 @@ const turn = (slot) => {
 };
 
 const markSlot = (slot) => {
+  notifications.style.display = "none";
   let i = slots.indexOf(slot);
   board[i] = currentPlayer.mark;
   slot.innerHTML = board[i];
@@ -71,6 +71,7 @@ const getWinner = () => {
 
 const notify = (message, type = null) => {
   notifications.innerHTML = message;
+  notifications.style.display = "block";
   if (type === null) {
     notifications.className = "alert alert-primary"
   } else {

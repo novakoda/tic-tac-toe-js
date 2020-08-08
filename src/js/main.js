@@ -9,6 +9,7 @@ const nameForm = document.getElementById("name-form");
 const errorDiv = document.getElementById("error");
 const startBtn = document.getElementById("startBtn");
 const closeBtn = document.getElementById("closeBtn");
+const resetBtn = document.getElementById("resetBtn");
 const xDisplay = document.getElementById("x-name");
 const oDisplay = document.getElementById("o-name");
 
@@ -30,4 +31,8 @@ startBtn.addEventListener("click", function() {
 
 closeBtn.addEventListener("click", function() {
   nameCont.style.display = "none";
+});
+
+resetBtn.addEventListener("click", function() {
+  Game.start([player1,player2]);
 });

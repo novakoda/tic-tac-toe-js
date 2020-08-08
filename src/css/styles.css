@@ -8,6 +8,9 @@ body {
   display: grid;
   grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr; }
 
+#notifications {
+  display: none; }
+
 .slot {
   min-width: 100%;
   min-height: 100%;
@@ -44,3 +47,10 @@ body {
   padding: 0 5px;
   text-decoration: none;
   color: #fff; }
+
+.marker {
+  width: 25px;
+  height: 25px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background-color: #0F0; }
