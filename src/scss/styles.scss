@@ -25,3 +25,32 @@ body {
   font-size: 100px;
   font-weight: bold;
 }
+
+#name-container {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+#error {
+  display: none;
+}
+
+#name-form {
+  position: relative;
+  right: 160px;
+  width: 400px;
+  max-width: 500px;
+  background-color: #fff;
+}
+
+#closeBtn {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  font-size: 13px;
+  padding: 0 5px;
+  text-decoration: none;
+  color: #fff;
+}

@@ -14,7 +14,6 @@ let notifications = document.getElementById("notifications");
 slots.forEach((slot) => {
   slot.addEventListener("click",  function() {turn(slot);});
 });
-
 const getCurrentPlayer = () => currentPlayer;
 
 const switchPlayers = () => {
