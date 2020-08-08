@@ -1,11 +1,12 @@
 const board = [
-  "X", "X", "X",
+  "", "", "",
   "", "", "",
   "", "", ""
 ];
 
 let players = [];
 let currentPlayer;
+let winner;
 let fullSlots = 0;
 let slots = Array.from(document.getElementsByClassName("slot"));
 
@@ -22,31 +23,32 @@ const start = (users) => {
 
   slots.forEach((slot, i) => {
     slot.disabled = false;
-    slot.addEventListener("click",  function() {markSlot(slot)});
+    slot.addEventListener("click",  function() {turn(slot);});
   });
 };
 
-const turn = () => {
-  if (winner()) {
-
+const turn = (slot) => {
+  markSlot(slot);
+  if (getWinner() !== null) {
+    alert(`${currentPlayer.name} won!`);
+  } else if (fullSlots === 9) {
+    alert("It was a tie!");
   } else {
     switchPlayers();
-  }
-};
+  };
+}
 
 const markSlot = (slot) => {
   let i = slots.indexOf(slot);
   board[i] = currentPlayer.mark;
   slot.innerHTML = board[i];
-  console.log({slot, board});
   slot.disabled = true;
   fullSlots += 1;
-  turn();
 };
 
-const winner = () => {
+const getWinner = () => {
   const winningSlots = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
-  let winner = false;
+  winner = null;
   winningSlots.forEach(function(combi) {
     if (combi.every(i => board[i] === "X")) {
       winner = 0;
@@ -58,5 +60,5 @@ const winner = () => {
 };
 
 export {
-  getCurrentPlayer, switchPlayers, start, winner
+  getCurrentPlayer, switchPlayers, start, getWinner
 };
