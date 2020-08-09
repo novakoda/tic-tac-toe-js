@@ -1,6 +1,9 @@
 body {
   background-image: linear-gradient(to top right, #96f, #63f); }
 
+h1 {
+  color: white; }
+
 #board {
   max-width: 500px;
   max-height: 500px;
@@ -29,7 +32,9 @@ body {
   transition: none; }
 
 .slot:hover {
-  transform: rotateZ(180deg); }
+  transform: rotateZ(180deg);
+  box-shadow: inset 0 0 30px #f0f, 0 0 30px #6200ff, 0 0 30px #00e1ff;
+  background-color: rgba(0, 0, 255, 0.3); }
 
 .player-sign {
   font-size: 100px;
@@ -46,7 +51,7 @@ body {
 
 #name-form {
   position: relative;
-  right: 160px;
+  right: 150px;
   width: 400px;
   max-width: 500px;
   background-color: #fff; }
@@ -67,3 +72,14 @@ body {
   margin-top: 7px;
   border-radius: 50%;
   background-color: #0F0; }
+
+@media (max-width: 770px) {
+  .player-col {
+    order: -1;
+    width: 50%; }
+  .player-sign {
+    font-size: 60px;
+    margin-top: 0; }
+  #name-form {
+    right: 20px;
+    margin: auto; } }
