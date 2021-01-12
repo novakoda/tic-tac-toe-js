@@ -1,8 +1,8 @@
 body {
-  background-image: linear-gradient(
+  background: linear-gradient(
     to top right,
     #96f, #63f
-  );
+  ) fixed;
 }
 
 h1 {
